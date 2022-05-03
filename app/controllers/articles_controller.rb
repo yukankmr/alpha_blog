@@ -3,7 +3,6 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   
   def show
-    
   end
   
   def index
@@ -15,7 +14,6 @@ class ArticlesController < ApplicationController
   end
   
   def edit
-    
   end
   
   def create
@@ -33,6 +31,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Aritcle was updated successfully"
       redirect_to @article
     else
+      byebug
       render 'edit'
     end
   end
