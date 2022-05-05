@@ -1,4 +1,4 @@
-<div class="row gx-4 gx-lg-5">
+<div class="container px-4 px-lg-5">
   <% if @article.errors.any? %>
     <h2>The following errors prevented the article from being saved</h2>
     <ul>
@@ -7,22 +7,29 @@
       <% end %>
     </ul>
   <% end %>
-</div>
-<div class="row gx-4 gx-lg-5">
-  <%= form_with(model: @article, local: true) do |f| %>
-    <div class="col-lg-10 mx-auto">
-      <%= f.label :title, class: "form-label text-white" %><br/>
-      <%= f.text_field :title, class: "form-control shadow rounded", placeholder: "Title of article" %>
+
+  <div class="row gx-4 gx-lg-5">
+    <div class="col-10 mx-auto">
+      <%= form_with(model: @article, local: true) do |f| %>
+        <div class="row mb-4">
+          <%= f.label :title, class: "col-2 col-form-label text-white" %>
+          <div class="col-10">
+            <%= f.text_field :title, class: "form-control", placeholder: "Title of article" %>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <%= f.label :description, class: "col-2 col-form-label text-white" %>
+          <div class="col-10">
+            <%= f.text_area :description, class: "form-control", rows: 10, placeholder: "Description of article" %>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="w-50 mx-auto text-center">
+            <%= f.submit class: "btn btn-outline-light btn-lg" %>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <div class="col-lg-10 mx-auto">
-      <%= f.label :description, class: "form-label text-white" %><br/>
-      <%= f.text_area :description, class: "form-control shadow rounded", rows: 10, placeholder: "Description of article" %>
-    </div>
-</div>
-    <div class="d-flex justify-content-center my-5">
-      <%= f.submit class: "btn btn-outline-light btn-lg" %>
-    </div>
-  <% end %>
-<div class="row">
-  <%= link_to '[ Cancel and return to articles listing ]', articles_path, class: "text-center" %>
+    <%= link_to '[ Cancel and return to articles listing ]', articles_path, class: "text-center" %>
+  </div>
 </div>
