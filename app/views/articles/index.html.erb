@@ -3,6 +3,12 @@
     <div class="row gx-4 gx-lg-5 d-flex justify-content-center">
       <h1 class="col-lg-8 text-center text-white">Listing Articles</h1>
     </div>
+    <div class="flickr_pagination">
+      <%= will_paginate @articles, :container => false %>
+    </div>
     <%= render 'articles' %>
+    <div class="flickr_pagination my-4">
+      <%= will_paginate @articles, :container => false %>
+    </div>
   </div>
 </main>
