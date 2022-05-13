@@ -17,7 +17,7 @@
   </div>
   
   <div class="d-grid col-6 mx-auto mb-4">
-    <%= f.submit "Sign up", class: "btn btn-primary btn-lg" %>
+    <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "btn btn-primary btn-lg") %>
   </div>
 
 <% end %>
