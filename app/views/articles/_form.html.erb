@@ -1,27 +1,26 @@
-<div class="container px-4 px-lg-5">
-  <div class="row gx-4 gx-lg-5">
-    <div class="col-10 mx-auto">
-      <%= render 'shared/errors' %>
-      <%= form_with(model: @article, local: true) do |f| %>
-        <div class="row mb-4">
-          <%= f.label :title, class: "col-2 col-form-label text-white" %>
-          <div class="col-10">
-            <%= f.text_field :title, class: "form-control", placeholder: "Title of article" %>
-          </div>
-        </div>
-        <div class="row mb-4">
-          <%= f.label :description, class: "col-2 col-form-label text-white" %>
-          <div class="col-10">
-            <%= f.text_area :description, class: "form-control", rows: 10, placeholder: "Description of article" %>
-          </div>
-        </div>
-        <div class="row my-5">
-          <div class="w-50 mx-auto text-center">
-            <%= f.submit class: "btn btn-outline-light btn-lg" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <%= link_to '[ Cancel and return to articles listing ]', articles_path, class: "text-center" %>
+<%= render 'shared/errors', obj: @article %>
+<%= form_with(model: @article, local: true) do |f| %>
+
+<div class="row align-items-center pt-4 pb-3">
+  <div class="col-md-3 ps-5">
+    <%= f.label :title, class: "form-label mb-0" %>
   </div>
+  <div class="col-md-9 pe-5">
+    <%= f.text_field :title, class: "form-control", placeholder: "Title of article" %>
+  </div>
+</div>
+
+<div class="row pt-4 pb-3">
+  <div class="col-md-3 ps-5">
+    <%= f.label :description, class: "form-label mb-0" %>
+  </div>
+  <div class="col-md-9 pe-5">
+    <%= f.text_area :description, class: "form-control", rows: 10, placeholder: "Description of article" %>
+  </div>
+</div>
+
+<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+  <%= f.submit class: "btn btn-outline-primary btn-lg" %>
+<% end %>
+  <%= link_to 'Cancel and return to articles listing', articles_path, class: "btn btn-outline-secondary btn-lg" %>
 </div>
