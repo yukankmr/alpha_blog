@@ -1,0 +1,30 @@
+<main class="vh-100">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-6">
+        <div class="card text-black rounded">
+          <div class="card-body p-5">
+            <h1 class="text-center fw-bold mb-4 mx-1 mx-md-4 mt-4">Log in</h1>
+            <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+              
+              <div class="form-floating mb-4">
+                <%= f.email_field :email, class: "form-control", placeholder: "Your Email" %>
+                <%= f.label :email %>
+              </div>
+              
+              <div class="form-floating mb-4">
+                <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+                <%= f.label :password %>
+              </div>
+              
+              <div class="d-grid col-6 mx-auto mb-4">
+                <%= f.submit "Log in", class: "btn btn-primary btn-lg" %>
+              </div>
+            
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
