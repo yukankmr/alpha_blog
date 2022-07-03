@@ -1,26 +1,36 @@
 <%= render 'shared/errors', obj: @article %>
 <%= form_with(model: @article, local: true) do |f| %>
 
-<div class="row align-items-center pt-4 pb-3">
-  <div class="col-md-3 ps-5">
-    <%= f.label :title, class: "form-label mb-0" %>
+  <div class="row align-items-center pt-4 pb-3">
+    <div class="col-md-3 ps-5">
+      <%= f.label :title, class: "form-label mb-0" %>
+    </div>
+    <div class="col-md-9 pe-5">
+      <%= f.text_field :title, class: "form-control", placeholder: "Title of article" %>
+    </div>
   </div>
-  <div class="col-md-9 pe-5">
-    <%= f.text_field :title, class: "form-control", placeholder: "Title of article" %>
+  
+  <div class="row pt-4 pb-3">
+    <div class="col-md-3 ps-5">
+      <%= f.label :description, class: "form-label mb-0" %>
+    </div>
+    <div class="col-md-9 pe-5">
+      <%= f.text_area :description, class: "form-control", rows: 10, placeholder: "Description of article" %>
+    </div>
   </div>
-</div>
-
-<div class="row pt-4 pb-3">
-  <div class="col-md-3 ps-5">
-    <%= f.label :description, class: "form-label mb-0" %>
+  
+  <div class="row pt-4 pb-3">
+    <div class="col-md-3 ps-5">
+      <%= f.label :category, class: "form-label mb-0" %>
+    </div>
+    <div class="col-md-9 pe-5">
+      <%= f.collection_select(:category_ids, Category.order(:name), :id, :name, 
+      { prompt: 'Make your selection from the list below (can be empty)' }, { multiple: true, size: 3, class: "form-select" }) %>
+    </div>
   </div>
-  <div class="col-md-9 pe-5">
-    <%= f.text_area :description, class: "form-control", rows: 10, placeholder: "Description of article" %>
+  
+  <div class="d-flex">
+    <%= f.submit class: "btn btn-outline-primary mx-auto" %>
   </div>
-</div>
-
-<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-  <%= f.submit class: "btn btn-outline-primary btn-lg" %>
+  
 <% end %>
-  <%= link_to 'Cancel and return to articles listing', articles_path, class: "btn btn-outline-secondary btn-lg" %>
-</div>
