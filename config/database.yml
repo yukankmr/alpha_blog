@@ -50,5 +50,7 @@ test:
 production:
   <<: *default
   database: alpha_blog_production
-  username: alpha_blog
-  password: <%= ENV['ALPHA_BLOG_DATABASE_PASSWORD'] %>
+  username: <%= Rails.application.credentials.db[:username] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  host: <%= Rails.application.credentials.db[:host] %>
+  socket: /var/lib/mysql/mysql.sock
