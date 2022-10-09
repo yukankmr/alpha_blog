@@ -22,6 +22,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate', '~> 3.3.0'
+# Synchronises Assets between Rails and S3
+gem "asset_sync"
+gem "fog-aws"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
