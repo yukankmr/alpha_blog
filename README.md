@@ -1,1 +1,1 @@
-# README
+# Alpha Blog
